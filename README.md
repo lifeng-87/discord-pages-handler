@@ -60,8 +60,8 @@ const pages = new PagesBuilder().addPage({
 ```
 ## Handle Pages
 ```javascript
-pager.handle(await message.reply(pages.getFirstPage()), pages)
-pager.handle(await interaction.reply(pages.getFirstPage()), pages)
+pager.handlePage(await message.reply(pages.getFirstPage()), pages)
+pager.handlePage(await interaction.reply(pages.getFirstPage()), pages)
 ```
 # Full Example
 ```javascript
