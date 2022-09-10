@@ -19,43 +19,43 @@ const pager = new Pager({ client: client });
 ### create option
 ```typescript
 interface {
-	client: Client;
-	frontButton?: ButtonBuilder;
-	prevButton?: ButtonBuilder;
-	pageButton?: ButtonBuilder;
-	nextButton?: ButtonBuilder;
-	lastButton?: ButtonBuilder;
+  client: Client;
+  frontButton?: ButtonBuilder;
+  prevButton?: ButtonBuilder;
+  pageButton?: ButtonBuilder;
+  nextButton?: ButtonBuilder;
+  lastButton?: ButtonBuilder;
 };
 ```
 ## Create pages
 You can create pages like...
 ```javascript
 const pages = new PagesBuilder([
-	{
-		content: '1',
-		embeds: [new EmbedBuilder().setDescription('1').setColor('Aqua')],
-	},
-	{
-		content: '2',
-		embeds: [new EmbedBuilder().setDescription('2').setColor('Aqua')],
-	},
+  {
+    content: '1',
+    embeds: [new EmbedBuilder().setDescription('1').setColor('Aqua')],
+  },
+  {
+    content: '2',
+    embeds: [new EmbedBuilder().setDescription('2').setColor('Aqua')],
+  },
 ]);
 ```
 ```javascript
 const pages = new PagesBuilder()
-	.addPage((page) => page.setContent('1')
-		.setEmbeds([new EmbedBuilder().setDescription('1').setColor('Aqua')]))
-	.addPage((page) => page.setContent('2')
-		.setEmbeds([new EmbedBuilder().setDescription('2').setColor('Aqua')]))
+  .addPage((page) => page.setContent('1')
+    .setEmbeds([new EmbedBuilder().setDescription('1').setColor('Aqua')]))
+  .addPage((page) => page.setContent('2')
+    .setEmbeds([new EmbedBuilder().setDescription('2').setColor('Aqua')]))
 ```
 ```javascript
 const pages = new PagesBuilder().addPage({
-	content: '1',
-	embeds: [new EmbedBuilder().setDescription('1').setColor('Aqua')],
+  content: '1',
+  embeds: [new EmbedBuilder().setDescription('1').setColor('Aqua')],
 })
 .addPage({
-	content: '2',
-	embeds: [new EmbedBuilder().setDescription('2').setColor('Aqua')],
+  content: '2',
+  embeds: [new EmbedBuilder().setDescription('2').setColor('Aqua')],
 });
 ```
 ## Handle Pages
@@ -70,44 +70,44 @@ const { Pager, PagesBuilder } = require('discord-pages-handler');
 const { token } = require('./config.json');
 
 const client = new Client({
-	intents: [
-		GatewayIntentBits.Guilds,
-		GatewayIntentBits.GuildMessages,
-		GatewayIntentBits.MessageContent,
-	],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
 });
 const pager = new Pager({
-	client: client,
+  client: client,
 });
 
 client.on('messageCreate', async (message) => {
-	if (message.content.startsWith('?test')) {
-		const pages = new PagesBuilder([
-			{
-				content: '1',
-				embeds: [new EmbedBuilder().setDescription('1').setColor('Aqua')],
-			},
-			{
-				content: '2',
-				embeds: [new EmbedBuilder().setDescription('2').setColor('Aqua')],
-			},
-		])
-			.addPage((page) =>
-				page
-					.setContent('3')
-					.setEmbeds([new EmbedBuilder().setDescription('3').setColor('Aqua')])
-			)
-			.addPage({
-				content: '4',
-				embeds: [new EmbedBuilder().setDescription('4').setColor('Aqua')],
-			});
+  if (message.content.startsWith('?test')) {
+    const pages = new PagesBuilder([
+      {
+        content: '1',
+        embeds: [new EmbedBuilder().setDescription('1').setColor('Aqua')],
+      },
+      {
+        content: '2',
+        embeds: [new EmbedBuilder().setDescription('2').setColor('Aqua')],
+      },
+    ])
+    .addPage((page) =>
+      page
+        .setContent('3')
+        .setEmbeds([new EmbedBuilder().setDescription('3').setColor('Aqua')])
+    )
+    .addPage({
+      content: '4',
+      embeds: [new EmbedBuilder().setDescription('4').setColor('Aqua')],
+    });
 
-		pager.handlePage(await message.reply(pages.getFirstPage()), pages);
-	}
+    pager.handlePage(await message.reply(pages.getFirstPage()), pages);
+  }
 });
 
 client.once('ready', () => {
-	console.log('Ready!');
+  console.log('Ready!');
 });
 
 client.login(token);

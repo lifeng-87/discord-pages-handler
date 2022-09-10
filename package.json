@@ -1,6 +1,6 @@
 {
   "name": "discord-pages-handler",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create message page(compatible with discord.js)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
