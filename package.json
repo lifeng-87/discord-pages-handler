@@ -1,0 +1,31 @@
+{
+  "name": "discord-pages-handler",
+  "version": "1.0.0",
+  "description": "Create message page(compatible with discord.js)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc -p .",
+    "test": "node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lifeng-87/discord-pages-handler.git"
+  },
+  "keywords": [
+    "discord.js",
+    "discordembeds",
+    "discordpages",
+    "embedpages",
+    "contentpages",
+    "messagepages"
+  ],
+  "author": "LIFeng87",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "discord.js": "^14.2.0"
+  }
+}
